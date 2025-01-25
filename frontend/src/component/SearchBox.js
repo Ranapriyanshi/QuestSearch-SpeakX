@@ -57,24 +57,23 @@ const SearchBox = () => {
           </button>
         </div>
       </div>
-      <PaginationControls
-        className="pagination-controls"
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-        isDisabled={results.length === 0}
-      />
-      <div>
-        {!query && results.length === 0 && !loading && (
-          <p className="message">
-            Type a query to start searching for questions.
-          </p>
-        )}
-        {results.length === 0 && query && !loading && (
-          <p>No results found for "{query}". Try another search.</p>
-        )}
-      </div>
-      {loading && <p>Loading...</p>}
+      {results.length > 0 && (
+        <PaginationControls
+          className="pagination-controls"
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+          isDisabled={results.length === 0}
+        />
+      )}
+      {results.length === 0 && query && !loading && (
+        <p id="no-result-error">
+          <sapn style={{fontSize: "1rem"}}>⛔&nbsp; </sapn>
+          No results found for <strong>"{query}"</strong>. Try another search.
+          
+        </p>
+      )}
+      {loading && <p>🌀 Loading...</p>}
       {error && <p>{error}</p>}
       <QuestionList
         className="question-list"
@@ -83,12 +82,14 @@ const SearchBox = () => {
         showSolution={showSolution}
         query={query}
       />
-      <PaginationControls
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-        isDisabled={results.length === 0}
-      />
+      {results.length > 0 && (
+        <PaginationControls
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+          isDisabled={results.length === 0}
+        />
+      )}
     </div>
   );
 };
