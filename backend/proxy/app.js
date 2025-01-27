@@ -7,7 +7,7 @@ const app = express();
 // Apply CORS middleware globally
 app.use(
   cors({
-    origin: "https://quest-search-speak-x.vercel.app", // Allow only your frontend origin
+    origin: ["https://quest-search-speak-x.vercel.app", "http://localhost:3000"], // Allow only your frontend origin
     credentials: true, // Allow cookies, if needed
     methods: ["GET", "POST", "OPTIONS"], // Allowed methods
   })
@@ -18,6 +18,11 @@ app.use(express.json());
 
 // Add routes
 app.use("/api", searchRoutes);
+
+// get requet
+app.get("/", (req, res) => {
+  res.send("Hello from proxy server");
+});
 
 // Handle OPTIONS preflight requests globally
 app.options("*", (req, res) => {
