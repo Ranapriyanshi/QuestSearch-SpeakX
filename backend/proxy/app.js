@@ -5,7 +5,7 @@ const searchRoutes = require("./routes/searchRoute");
 const app = express();
 
 // Apply middleware
-app.use(corsMiddleware);
+app.use(corsMiddleware());
 app.use(express.json());
 
 // Add routes
