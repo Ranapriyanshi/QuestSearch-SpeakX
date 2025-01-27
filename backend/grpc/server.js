@@ -4,7 +4,7 @@ const protoLoader = require("@grpc/proto-loader");
 const { searchQuestions } = require("./services/questionService");
 
 const path = require('path');
-const PROTO_PATH = path.resolve(__dirname, 'grpc/proto/question.proto');
+const PROTO_PATH = path.resolve(__dirname, 'backend/grpc/proto/question.proto');
 
 
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
