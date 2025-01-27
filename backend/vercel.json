@@ -11,6 +11,9 @@
         "src": "/(.*)",
         "dest": "proxy/app.js"
       }
-    ]
+    ],
+    "includeFiles": [
+    "grpc/proto/*"
+  ]
   }
   
