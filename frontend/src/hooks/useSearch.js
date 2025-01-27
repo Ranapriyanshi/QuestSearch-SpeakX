@@ -11,6 +11,7 @@ export const useSearch = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [showSolution, setShowSolution] = useState({});
+  const api = process.env.REACT_APP_API_URI;
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -31,7 +32,7 @@ export const useSearch = () => {
       setLoading(true);
       setError("");
       try {
-        const response = await axios.post("http://localhost:5000/api/search", {
+        const response = await axios.post(api+"/api/search", {
           query: searchQuery || undefined,
           type: type !== "NO FILTER" ? type : undefined,
           page,
