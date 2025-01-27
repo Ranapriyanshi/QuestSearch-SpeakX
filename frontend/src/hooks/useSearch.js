@@ -54,7 +54,7 @@ export const useSearch = () => {
         setLoading(false);
       }
     },
-    []
+    [api]
   );
 
   useEffect(() => {
