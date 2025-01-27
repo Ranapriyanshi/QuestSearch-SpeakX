@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { startGRPCServer } = require("./grpc/server");
 const { connectToDatabase } = require("./utils/db");
-const app = require("./app");
+const app = require("./proxy/app");
 
 const PORT = process.env.PROXY_PORT || 5000;
 
