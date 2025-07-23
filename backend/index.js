@@ -10,7 +10,7 @@ const startApp = async () => {
   startGRPCServer();
 
   // Start proxy server
-  // require("./proxy/server");
+  require("./proxy/server");
 };
 
 startApp();
